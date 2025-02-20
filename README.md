@@ -23,7 +23,7 @@ To run this project, you need to create an `.env` file in the root directory and
 1. Create a `.env` file in the root directory.
 2. Add the following environment variable:
    ```sh
-   NUXT_PUBLIC_API_KEY=your_api_key_here
+   YOUR_API_KEY=your_api_key_here
    ```
    Replace `your_api_key_here` with your actual API key.
 
