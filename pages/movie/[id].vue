@@ -11,45 +11,41 @@
     </div>
 
     <div v-else>
-      <!-- Background Image Section -->
       <div
         class="w-full h-[50vh] bg-cover bg-center relative"
         :style="{
-          backgroundImage: `url('https://image.tmdb.org/t/p/w1280${detailMovie.backdrop_path}')`,
+          backgroundImage: `url('https://image.tmdb.org/t/p/w1280${detailMovie?.backdrop_path}')`,
         }"
       >
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="absolute bottom-0 left-0 w-full h-20 bg-black/50"></div>
       </div>
 
-      <!-- Movie Details (White Background) -->
-
       <section class="bg-white w-full py-16">
         <div
           class="container max-w-[1440px] mx-auto px-6 md:px-12 lg:px-[120px] flex flex-col md:flex-row gap-10 relative mt-[-240px]"
         >
-          <!-- Poster -->
           <div class="w-full md:w-[13.75rem] mt-[-20px]">
             <img
-              :src="'https://image.tmdb.org/t/p/w500' + detailMovie.poster_path"
-              :alt="detailMovie.title"
+              :src="
+                'https://image.tmdb.org/t/p/w500' + detailMovie?.poster_path
+              "
+              :alt="detailMovie?.title"
               class="shadow-[0px_5px_10px_0px_rgba(0,0,0,0.25)]"
             />
           </div>
 
-          <!-- Movie Info -->
           <div class="flex-1">
             <p class="text-white text-lg">
-              {{ new Date(detailMovie.release_date).getFullYear() }}
+              {{ new Date(detailMovie?.release_date).getFullYear() }}
             </p>
             <h1 class="text-4xl font-bold text-customGray">
-              {{ detailMovie.title }}
+              {{ detailMovie?.title }}
             </h1>
             <p class="text-white text-sm">
-              {{ detailMovie.genres.map((genre) => genre.name).join(", ") }}
+              {{ detailMovie?.genres?.map((genre) => genre.name).join(", ") }}
             </p>
 
-            <!-- Ratings and Meta Data -->
             <div class="flex w-full mt-6">
               <div class="flex items-center gap-2 mr-3">
                 <svg
@@ -63,11 +59,10 @@
                   />
                 </svg>
                 <span class="text-4xl font-semibold text-customGray">{{
-                  detailMovie.vote_average.toFixed(1)
+                  detailMovie?.vote_average?.toFixed(1) ?? "0"
                 }}</span>
               </div>
 
-              <!-- Other Metadata -->
               <div class="grid grid-cols-1 md:grid-cols-5">
                 <div class="flex flex-col mt-2">
                   <span
@@ -75,7 +70,7 @@
                     >User Score</span
                   >
                   <span class="text-white font-medium">{{
-                    detailMovie.vote_count
+                    detailMovie?.vote_count ?? "N/A"
                   }}</span>
                 </div>
                 <div class="flex flex-col mt-2">
@@ -84,7 +79,7 @@
                     >Status</span
                   >
                   <span class="text-white font-medium">{{
-                    detailMovie.status
+                    detailMovie?.status ?? "N/A"
                   }}</span>
                 </div>
                 <div class="flex flex-col mt-2">
@@ -93,7 +88,7 @@
                     >Language</span
                   >
                   <span class="text-white font-medium">{{
-                    getLanguageName(detailMovie.original_language)
+                    getLanguageName(detailMovie?.original_language) ?? "N/A"
                   }}</span>
                 </div>
                 <div class="flex flex-col mt-2">
@@ -103,10 +98,10 @@
                   >
                   <span class="text-white font-medium">
                     {{
-                      detailMovie.budget.toLocaleString("en-US", {
+                      detailMovie?.budget?.toLocaleString("en-US", {
                         style: "currency",
                         currency: "USD",
-                      })
+                      }) ?? "N/A"
                     }}
                   </span>
                 </div>
@@ -115,20 +110,19 @@
                     class="text-white text-opacity-50 text-xs uppercase font-medium"
                     >Production</span
                   >
-                  <span class="text-white font-medium">{{
-                    detailMovie.production_companies[0].name
-                  }}</span>
+                  <span class="text-white font-medium">
+                    {{ detailMovie?.production_companies?.[0]?.name ?? "N/A" }}
+                  </span>
                 </div>
               </div>
             </div>
 
-            <!-- Overview -->
             <div class="mt-8">
               <p class="uppercase text-sm text-customRed font-semibold">
                 Overview
               </p>
               <p class="text-sm mt-3">
-                {{ detailMovie.overview }}
+                {{ detailMovie?.overview ?? "No overview available." }}
               </p>
             </div>
           </div>
@@ -158,8 +152,6 @@ The superhero genre has been growing exponentially during the last decade, so it
           />
         </div>
       </section>
-
-      <!-- Recommendations (Gray Background) -->
       <section class="bg-darkGray w-full pt-16 pb-8">
         <div
           class="container max-w-[1440px] mx-auto px-6 md:px-12 lg:px-[120px]"
