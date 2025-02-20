@@ -97,7 +97,8 @@ console.log(props.movies);
 <style scoped>
 .swiper-coverflow {
   width: 100%;
-  padding-top: 50px;
+  padding-top: 100px;
+  padding-bottom: 25px;
 }
 
 .swiper {
@@ -123,13 +124,6 @@ console.log(props.movies);
 
 .swiper-pagination {
   position: relative;
-}
-
-.swiper-pagination-bullet {
-  background: red;
-  opacity: 0.5;
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
+  padding-top: 3rem;
 }
 </style>
