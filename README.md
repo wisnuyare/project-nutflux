@@ -7,7 +7,7 @@ This is a Nuxt-based movie app that fetches movie data from an API. To run the p
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/your-username/project-nutflux.git
+   git clone https://github.com/wisnuyare/project-nutflux.git
    cd movie-app
    ```
 
