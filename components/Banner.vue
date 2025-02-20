@@ -24,7 +24,6 @@
         <div
           class="relative bg-black text-white p-6 flex max-w-2xl h-[20rem] overflow-visible"
         >
-          <!-- Movie Poster -->
           <div
             class="absolute -left-2 -top-2 -bottom-2 overflow-visible w-[42%] z-50"
           >
@@ -34,11 +33,9 @@
             />
           </div>
 
-          <!-- Movie Details -->
           <div
             class="relative flex flex-col justify-between w-3/5 ml-[45%] w-[58%] h-full"
           >
-            <!-- Rating -->
             <div class="flex items-center text-white font-bold text-[1.125rem]">
               <span class="font-bold"
                 ><svg
@@ -55,20 +52,17 @@
               >
             </div>
 
-            <!-- Title -->
             <h2
               class="text-[1.75rem] font-medium text-white leading-tight mt-2"
             >
               {{ movie.title }}
             </h2>
 
-            <!-- Year & Genre -->
             <p class="text-gray-400 text-base font-normal mt-2">
               {{ new Date(movie.release_date).getFullYear() }} •
               {{ getGenre(movie.genre_ids[0]) }}
             </p>
 
-            <!-- Description -->
             <div class="flex-1 flex mt-2 overflow-hidden">
               <p
                 class="text-gray-300 text-[0.875rem] font-normal leading-relaxed whitespace-normal"

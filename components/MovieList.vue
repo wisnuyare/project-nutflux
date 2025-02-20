@@ -17,13 +17,9 @@
         :movie="movie"
       />
     </div>
-
-    <!-- No Results Message -->
     <div v-else class="flex justify-center mt-8 text-customGray">
       <p class="text-lg">No results found. Try another keyword.</p>
     </div>
-
-    <!-- Load More Button -->
     <div class="flex justify-center mt-4 mb-8 pb-12">
       <button
         v-if="loadMore && movies.length"

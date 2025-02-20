@@ -15,8 +15,7 @@ export const useMovieStore = defineStore("movies", {
 
   getters: {
     pageTitle: () => {
-      const route = useRoute(); // Get the current route
-
+      const route = useRoute(); 
       if (route.query.category && route.params.type === "movies") {
         return `Movies Category: ${getGenre(parseInt(route.query.category))}`;
       }

@@ -1,15 +1,12 @@
 <template>
   <div class="p-6 bg-[#F9F9F9] shadow-md rounded-lg">
     <div class="flex justify-between items-center">
-      <!-- Profile Section -->
       <div class="flex items-center space-x-3">
-        <!-- Profile Picture -->
         <div
           class="w-12 h-12 bg-[#1E232B] bg-opacity-36 rounded-full flex items-center justify-center"
         >
           <img :src="profileImage" alt="User" class="w-12 h-12 rounded-full" />
         </div>
-        <!-- Username and Date -->
         <div>
           <p class="text-[0.875rem] font-bold text-gray-700">{{ username }}</p>
           <p class="text-sm font-normal text-[#666666]">
@@ -17,8 +14,6 @@
           </p>
         </div>
       </div>
-
-      <!-- Rating Badge -->
       <div
         class="flex items-center px-3 py-1 bg-[#C4C4C4] bg-opacity-28 rounded-[7px]"
       >
@@ -37,8 +32,6 @@
         }}</span>
       </div>
     </div>
-
-    <!-- Review Text -->
     <p class="mt-6 text-[13px] italic font-normal text-black line-clamp-8">
       {{ reviewText }}
       <span
@@ -61,7 +54,7 @@ const props = defineProps({
   date: String,
 });
 
-const maxLength = 200; // Limit the review text length
+const maxLength = 200;
 
 const formattedDate = computed(() => {
   const options = { month: "short", day: "2-digit", year: "numeric" };

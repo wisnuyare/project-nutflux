@@ -5,20 +5,14 @@
       isScrolled ? 'bg-white bg-opacity-50' : 'bg-white bg-opacity-5',
     ]"
   >
-    <!-- Logo on the left -->
     <div
       class="container max-w-[1440px] mx-auto px-6 md:px-12 lg:px-[120px] flex flex-col md:flex-row gap-10"
     >
       <NuxtLink to="/" class="flex items-center space-x-4 cursor-pointer">
         <img src="@/assets/MoovieTime-Logo.svg" alt="Logo" class="h-8" />
       </NuxtLink>
-
-      <!-- Search bar in the center -->
       <SearchBar />
-
-      <!-- Fixed menu (Movies, TV Shows, Login) -->
       <div class="flex items-center space-x-6">
-        <!-- Categories dropdown button -->
         <div class="relative">
           <button
             @click="toggleDropdown"
@@ -31,7 +25,6 @@
             />
             Categories
           </button>
-          <!-- Dropdown -->
           <div
             v-if="dropdownVisible"
             class="absolute top-full left-0 w-48 mt-2 bg-white text-black rounded-md custom-shadow z-50"

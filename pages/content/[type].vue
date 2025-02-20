@@ -38,7 +38,7 @@
               class="text-white text-[13px] bg-[#111419]"
               value="popularity.asc"
             >
-              Popularity Acsending
+              Popularity Ascending
             </option>
             <option
               class="text-white text-[13px] bg-[#111419]"
@@ -50,7 +50,7 @@
               class="text-white text-[13px] bg-[#111419]"
               value="primary_release_date.asc"
             >
-              Release Date Acsending
+              Release Date Ascending
             </option>
             <option
               class="text-white text-[13px] bg-[#111419]"
@@ -62,7 +62,7 @@
               class="text-white text-[13px] bg-[#111419]"
               value="vote_average.asc"
             >
-              Rating Acsending
+              Rating Ascending
             </option>
             <option
               class="text-white text-[13px] bg-[#111419]"
@@ -138,27 +138,22 @@ import { storeToRefs } from "pinia";
 import { useRoute } from "vue-router";
 import { onMounted, watch } from "vue";
 
-// ✅ Initialize store
 const store = useMovieStore();
 const route = useRoute();
 
-// ✅ Get state as refs
 const { movies, selectedGenres, sortBy, searchQuery, pageTitle } =
   storeToRefs(store);
 
-// ✅ Destructure methods directly from the store
-const { fetchMovies, fetchMoreMovies } = store; // <-- Fixes the issue!
+const { fetchMovies, fetchMoreMovies } = store;
 
-// Fetch movies on mount
 onMounted(async () => {
   store.searchQuery = route.query.q || "";
   store.realType = route.params.type === "movies" ? "movie" : "tv";
   store.currentPage = Number(route.query.page) || 1;
 
-  await fetchMovies(); // ✅ Fetch movies on mount
+  await fetchMovies();
 });
 
-// Watch for route changes and update store
 watch(
   () => route.query,
   async (newQuery) => {
@@ -171,7 +166,6 @@ watch(
   { deep: true, immediate: true }
 );
 
-// Watch sorting & genres
 watch([sortBy, selectedGenres], async () => {
   await fetchMovies();
 });
